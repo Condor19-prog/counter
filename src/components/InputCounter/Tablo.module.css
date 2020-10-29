@@ -1,4 +1,9 @@
 .tablo{
     font-size: 40px;
-    margin-left: 50px;
+    margin-left: 65px;
+}
+.error{
+    color: darkred;
+    font-size: 40px;
+    margin-left: 65px;
 }

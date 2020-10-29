@@ -4,11 +4,13 @@ import s from './Tablo.module.css'
 
 type counterPropsType = {
     count: number
+    maxValue: number
 }
 
 function Tablo(props: counterPropsType) {
+
     return (
-        <div className={s.tablo}>
+        <div className={props.count===props.maxValue ? s.error : s.tablo}>
            <span>{props.count}</span>
         </div>
     )
