@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import UniversalButton from "./components/universalButton/UniversalButton";
 import Tablo from "./components/InputCounter/Tablo";
 import './App.css'
@@ -6,10 +6,18 @@ import InputNumber from "./components/inputNumber/inputNumber";
 
 function App() {
 
-    let [startValue, setStartValue] = useState(0)
-    let [count, setCount] = useState(startValue)
-    let [maxValue, setMaxValue] = useState(0)
+    let [startValue, setStartValue] = useState<any>(0)
+    let [count, setCount] = useState<any>(0)
+    let [maxValue, setMaxValue] = useState<any>(0)
     const [error, setError] = useState<string | null>(null)
+
+
+    useEffect( ()=> {
+        let min = localStorage.getItem("minValue")
+        let max = localStorage.getItem("maxValue")
+        setStartValue(min)
+        setMaxValue(max)
+    }, [] )
 
 
     function inc() {
@@ -18,13 +26,14 @@ function App() {
         }
     }
 
-    const reset = () => setCount(startValue)
+    const reset = () => setCount(+startValue)
 
     return (
         <div className='App'>
             <header>
                 <InputNumber maxValue={maxValue}
                              setMaxValue={setMaxValue}
+                             startValue={startValue}
                              setStartValue={setStartValue}
                              setCount={setCount}
                              count={count}

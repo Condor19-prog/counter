@@ -1,5 +1,5 @@
 import React from "react";
-import s from './Tablo.module.css'
+import s from '../InputCounter/Tablo.module.css'
 
 
 type counterPropsType = {
@@ -8,7 +8,6 @@ type counterPropsType = {
 }
 
 function Tablo(props: counterPropsType) {
-
     return (
         <div className={props.count===props.maxValue ? s.error : s.tablo}>
            <span>{props.count}</span>
