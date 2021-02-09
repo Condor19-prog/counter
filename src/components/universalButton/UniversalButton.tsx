@@ -1,26 +1,35 @@
 import React from "react";
 import {Button} from "@material-ui/core";
+import s from './UniversalButton.module.css'
 
 type universalButtonPropsType = {
-    inc: () => void
-    reset: () => void
-    count: number
+    increment: () => void
+    minValue: number
     maxValue: number
-    startValue: number
+    counter: number
+    disableButton: boolean
+    reset: (minValue: number) => void
+    set: () => void
+    disableSet: boolean
 }
 
 function UniversalButton(props: universalButtonPropsType) {
 
-    const disableButtonInc = () => {
-        if(props.count === props.maxValue || props.maxValue === 0){
-            return true;
-        }
+    const resetButton = () => {
+        props.reset(props.minValue)
     }
 
+
     return (
-        <div>
-            <Button variant='contained' onClick={() => {props.inc()}} disabled={disableButtonInc()}>Inc</Button>
-            <Button variant='contained' onClick={() => {props.reset()}} disabled={props.count === props.startValue }>Reset</Button>
+        <div className={s.group}>
+            <div className={s.set}>
+                <Button variant='contained' onClick={props.set} disabled={props.disableSet}>SET</Button>
+            </div>
+            <div className={s.twoButtons}>
+                <Button variant='contained' onClick={props.increment} disabled={props.disableButton}
+                        style={{marginRight: 10}}>Inc</Button>
+                <Button variant='contained' onClick={resetButton}>Reset</Button>
+            </div>
         </div>
     )
 }

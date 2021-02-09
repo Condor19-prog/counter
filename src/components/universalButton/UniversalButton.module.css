@@ -1,3 +1,17 @@
 .universalBtn {
     display: inline-block;
 }
+
+.set {
+    margin: 0px 0 10px 65px;
+}
+
+.group {
+    margin-left: 5px;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 10px;
+}
+.twoButtons{
+    margin-left: 17px;
+}
