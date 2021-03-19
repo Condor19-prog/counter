@@ -56,7 +56,7 @@ function Counter() {
     }
 
     return (
-        <div>
+        <div className={s.counter}>
             <div className={s.input}>
                 <div className={s.inputMax}>
                     <TextField type={'number'}

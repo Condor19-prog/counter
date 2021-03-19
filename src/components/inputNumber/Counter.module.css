@@ -1,6 +1,6 @@
 .count {
     font-size: 30px;
-    margin-left: 105px;
+    align-self: center;
 }
 
 .countError {
@@ -18,4 +18,9 @@
     border: 2px solid black;
     padding: 20px;
     border-radius: 10px;
+}
+.counter{
+    display: flex;
+    flex-direction: column;
+
 }
